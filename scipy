@@ -1,0 +1,40 @@
+Code: 
+# Import the necessary libraries
+import numpy as np
+from scipy import optimize, integrate, interpolate
+# Define a simple function to optimize
+def f(x):
+    return (x - 2) ** 2 + 5
+
+# Use SciPy to find the minimum of the function
+result = optimize.minimize(f, x0=0)
+print("Optimization result:")
+print(result)
+# Define a function to integrate
+def g(x):
+    return 2 * x
+
+# Integrate the function from 0 to 4
+result, error = integrate.quad(g, 0, 4)
+print("Integration result:")
+print(result)
+# Generate some data points
+x = np.array([0, 1, 2, 3, 4])
+y = np.array([0, 1, 4, 9, 16])
+
+# Create an interpolation function
+interpolation = interpolate.interp1d(x, y, kind='linear')
+
+# Interpolate a value at x = 2.5
+interpolated_value = interpolation(2.5)
+print("Interpolated value at x = 2.5:")
+print(interpolated_value)
+# Create a 2x2 matrix
+A = np.array([[2, 1], [1, 3]])
+
+# Solve a linear system of equations
+b = np.array([1, 2])
+solution = np.linalg.solve(A, b)
+print("Linear system solution:")
+print(solution)
+Conclusion: Successfully performed Scientific Computing in Python using SciPy
