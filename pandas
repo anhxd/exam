@@ -1,0 +1,60 @@
+
+Code:
+# Import the Pandas library
+import pandas as pd
+
+# Load a sample dataset (you can use any dataset of your choice)
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'Age': [25, 30, 22, 35, 28],
+    'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago', 'Boston']
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+# Display the first 5 rows of the DataFrame
+print("First 5 rows of the DataFrame:")
+print(df.head())
+
+# Get basic statistics of the data
+print("Summary statistics:")
+print(df.describe())
+
+# Check the data types of each column
+print("Data types of columns:")
+print(df.dtypes)
+# Select a specific column
+print("Selecting the 'Name' column:")
+print(df['Name'])
+
+# Filter rows based on a condition
+print("Filtering people aged 30 or older:")
+print(df[df['Age'] >= 30])
+# Add a new column
+df['Gender'] = ['Female', 'Male', 'Male', 'Male', 'Female']
+
+# Update a column
+df['City'] = df['City'].str.upper()
+
+# Remove a column
+df = df.drop(columns='Age')
+
+# Sort the DataFrame by a column
+df = df.sort_values(by='Name')
+# Calculate the average age
+average_age = df['Age'].mean()
+print(f"Average Age: {average_age}")
+
+# Group data by a column and calculate statistics
+grouped = df.groupby('Gender')['Age'].mean()
+print("Average Age by Gender:")
+print(grouped)
+# Export the DataFrame to a CSV file
+df.to_csv('output_data.csv', index=False)
+
+# Save the modified DataFrame to an Excel file
+df.to_excel('output_data.xlsx', index=False)
+
+Conclusion: Successfully implemented data manipulation with pandas.
+
+
